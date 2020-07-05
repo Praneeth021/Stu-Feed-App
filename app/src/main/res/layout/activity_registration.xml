@@ -1,9 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F6F6"
     tools:context=".RegistrationActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="720dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/Linear1"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="@color/color1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/registration_logo">
+
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="1dp"
+                    android:text="Registration"
+                    android:textSize="30sp">
+
+                </TextView>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/Linear1">
+
+                <ImageView
+                    android:id="@+id/id"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/id_logo">
+
+                </ImageView>
+
+                <EditText
+                    android:id="@+id/rollno"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignBottom="@+id/id"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_toRightOf="@+id/id"
+                    android:background="@color/color2"
+                    android:hint="Roll No"
+                    android:textAlignment="center">
+
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/img_Name"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/id"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/user_logo">
+
+                </ImageView>
+
+                <EditText
+                    android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/rollno"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_toRightOf="@+id/img_Name"
+                    android:background="@color/color2"
+                    android:hint="Username"
+                    android:textAlignment="center">
+
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/img_department"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/img_Name"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/department_logo">
+
+                </ImageView>
+
+                <Spinner
+                    android:id="@+id/department"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/username"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toEndOf="@+id/img_department"
+                    android:background="@color/color2"
+                    android:entries="@array/Departments"
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown"/>
+
+                <ImageView
+                    android:id="@+id/img_year"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/img_department"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/year_logo">
+
+                </ImageView>
+
+                <Spinner
+                    android:id="@+id/year"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/department"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_toRightOf="@+id/img_year"
+                    android:background="@color/color2"
+                    android:inputType="number"
+                    android:entries="@array/Year"
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/img_section"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/img_year"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/section_logo" />
+
+                <Spinner
+                    android:id="@+id/section"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/year"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_toRightOf="@+id/img_year"
+                    android:background="@color/color2"
+                    android:entries="@array/Sections"
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown" />
+
+                <ImageView
+                    android:id="@+id/img_password"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/img_section"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:src="@drawable/password_logo">
+
+                </ImageView>
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/section"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_toEndOf="@+id/img_password"
+                    android:background="@color/color2"
+                    android:hint="Password"
+                    android:textAlignment="center">
+
+                </EditText>
+
+                <Button
+                    android:id="@+id/registration"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/password"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/color1"
+                    android:text="Sign Up"
+                    app:backgroundTint="#009688">
+
+                </Button>
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

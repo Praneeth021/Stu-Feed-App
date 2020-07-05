@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Stufeed</string>
+
+    <string-array name="Departments">
+        <item>Computer Science</item>
+        <item>Information Technology</item>
+        <item>Electronics and Communications</item>
+        <item>Electrical and Electronics</item>
+        <item>Chemical</item>
+        <item>Mechanical</item>
+    </string-array>
+
+    <string-array name="Year">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="Sections">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>
