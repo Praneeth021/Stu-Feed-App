@@ -121,7 +121,7 @@
                     android:layout_below="@+id/username"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_toEndOf="@+id/img_department"
+                    android:layout_toEndOf="@+id/ic_"
                     android:background="@color/color2"
                     android:entries="@array/Departments"
                     android:textAlignment="center"

@@ -41,6 +41,7 @@
                     android:layout_marginStart="120dp"
                     android:layout_marginTop="20dp"
                     android:text="Login"
+                    android:textColor="@color/white"
                     android:textSize="40sp">
 
                 </TextView>
@@ -105,7 +106,7 @@
                 </EditText>
 
                 <Button
-                    android:id="@+id/login"
+                    android:id="@+id/login1"
                     android:layout_width="120dp"
                     android:layout_height="50dp"
                     android:layout_below="@+id/password1"
@@ -120,7 +121,7 @@
                     android:id="@+id/TextView"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:layout_below="@+id/login"
+                    android:layout_below="@+id/login1"
                     android:layout_marginTop="40dp"
                     android:text="Dont have an Account?"
                     android:textAlignment="center"
