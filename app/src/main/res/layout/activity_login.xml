@@ -4,17 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F6F6"
+    android:background="@color/colorPrimary"
     android:clickable="true"
     tools:context=".RegistrationActivity">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="720dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -24,13 +20,13 @@
                 android:id="@+id/Linear2"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@color/color1"
                 android:orientation="vertical">
+
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="40dp"
                     android:src="@drawable/login1_logo">
 
                 </ImageView>
@@ -38,12 +34,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="150dp"
                     android:layout_marginTop="20dp"
                     android:text="Login"
-                    android:textColor="@color/white"
+                    android:textColor="@color/color2"
                     android:textSize="40sp">
-
                 </TextView>
             </LinearLayout>
 
@@ -74,6 +69,7 @@
                     android:layout_marginEnd="30dp"
                     android:layout_toEndOf="@+id/id1"
                     android:background="@color/color2"
+                    android:textColor="@color/colorAccent"
                     android:hint="Roll No"
                     android:textAlignment="center">
 
@@ -101,7 +97,8 @@
                     android:layout_toEndOf="@+id/img_password1"
                     android:background="@color/color2"
                     android:hint="Password"
-                    android:textAlignment="center">
+                    android:textAlignment="center"
+                    android:inputType="textPassword">
 
                 </EditText>
 
@@ -129,17 +126,20 @@
 
                 </TextView>
 
-                <TextView
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="50dp"
                     android:layout_below="@+id/TextView"
-                    android:text="SignUp"
+                    android:layout_centerInParent="true"
+                    android:text="Sign Up"
                     android:textAlignment="center"
                     android:textSize="20sp">
 
-                </TextView>
+                </com.google.android.material.button.MaterialButton>
 
             </RelativeLayout>
+
         </RelativeLayout>
 
     </com.google.android.material.card.MaterialCardView>

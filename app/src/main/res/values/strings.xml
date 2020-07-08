@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Stufeed</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
 
     <string-array name="Departments">
         <item>Computer Science</item>
@@ -22,4 +24,5 @@
         <item>2</item>
         <item>3</item>
     </string-array>
+
 </resources>
