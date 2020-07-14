@@ -28,7 +28,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText rollno, username, password;
     private Spinner department, year, section;
     private String message;
-    RequestQueue queue;
+    private RequestQueue queue;
     JsonObjectRequest registerRequest;
 
     @Override
