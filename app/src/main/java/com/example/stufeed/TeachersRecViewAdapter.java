@@ -1,6 +1,7 @@
 package com.example.stufeed;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,11 +40,21 @@ public class TeachersRecViewAdapter extends RecyclerView.Adapter<TeachersRecView
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Teachers teacher = teachers.get(position);
+        final Teachers teacher = teachers.get(position);
 
         holder.textView.setText(teacher.getUsername());
 
         Glide.with(mContext).asBitmap().load(teacher.getImage()).into(holder.imageView);
+
+        holder.button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, FeedbackActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("tid", teacher.getTid());
+                mContext.startActivity(intent);
+            }
+        });
 
 
     }
