@@ -88,7 +88,9 @@
                             android:layout_height="40dp"
                             android:layout_marginLeft="30dp"
                             android:layout_marginTop="20dp"
-                            android:src="@drawable/id_logo"></ImageView>
+                            android:src="@drawable/id_logo">
+
+                        </ImageView>
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/rollno"

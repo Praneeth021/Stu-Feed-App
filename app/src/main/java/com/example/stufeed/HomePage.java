@@ -1,5 +1,6 @@
 package com.example.stufeed;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -7,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -55,6 +58,31 @@ public class HomePage extends AppCompatActivity {
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
+        NavigationView navigationView= findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id = item.getItemId();
+                switch(id)
+                {
+                    case R.id.profile:
+                        Intent intent = new Intent(HomePage.this, ProfilePage.class);
+                        startActivity(intent);break;
+                    case R.id.dashboard:
+                        Intent intent1 = new Intent(HomePage.this, HomePage.class);
+                        startActivity(intent1);;break;
+                    case R.id.logout:
+                        Intent intent2 = new Intent(HomePage.this, LoginActivity.class);
+                        startActivity(intent2);break;
+                    default:
+                        return true;
+                }
+
+                return false;
+            }
+        });
 
 
 
