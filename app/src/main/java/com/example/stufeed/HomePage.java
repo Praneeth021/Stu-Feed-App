@@ -91,7 +91,7 @@ public class HomePage extends AppCompatActivity {
 
         teachers = new ArrayList<>();
 
-        teachersRequest = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+        teachersRequest = new StringRequest(Request.Method.GET, URL,new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {

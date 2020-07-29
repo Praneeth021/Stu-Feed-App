@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                             acc_tkn = response.getString("access_token");
 
                             HomePage.acc_tkn = acc_tkn;
-                            Toast.makeText(getApplicationContext(),acc_tkn,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Your Are Logged In",Toast.LENGTH_SHORT).show();
                             OpenDashBoard();
                         } catch (JSONException e) {
                             e.printStackTrace();
