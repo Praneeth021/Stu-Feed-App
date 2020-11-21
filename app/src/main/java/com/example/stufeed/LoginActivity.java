@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity {
                 String rno = rollno.getText().toString();
                 String pass = password.getText().toString();
 
+                System.out.println(rno + " " + pass);
+
 
                 JSONObject data = new JSONObject();
 

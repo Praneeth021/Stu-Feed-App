@@ -47,112 +47,100 @@ public class RegistrationActivity extends AppCompatActivity {
         year = findViewById(R.id.year);
         section = findViewById(R.id.section);
 
+        final String[] dname = new String[1];
+        final String[] yr = new String[1];
+        final String[] sec = new String[1];
+
+        department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                dname[0] = adapterView.getSelectedItem().toString();
+                System.out.println(dname[0] + " " + adapterView.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+                Toast.makeText(getApplicationContext(), "Select your department", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                yr[0] = year.getSelectedItem().toString();
+                System.out.println(yr[0]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(getApplicationContext(),
+                        "Select your Year",
+                        Toast.LENGTH_SHORT).show();
+                year.requestFocus();
+            }
+        });
+
+        section.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sec[0] = adapterView.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Toast.makeText(getApplicationContext(), "Select Your section", Toast.LENGTH_SHORT).show();
+                section.requestFocus();
+            }
+        });
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String rno = rollno.getText().toString();
                 String uname = username.getText().toString();
                 String pass = password.getText().toString();
-                final String[] dname = new String[1];
-                final String[] yr = new String[1];
-                final String[] sec = new String[1];
-                department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        dname[0] = department.getSelectedItem().toString();
-                    }
+                System.out.println(rno + " " + uname);
 
 
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-                        Toast.makeText(getApplicationContext(),
-                                "Select your department",
-                                Toast.LENGTH_SHORT).show();
-                        department.requestFocus();
-                    }
-                });
-
-                year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        yr[0] = year.getSelectedItem().toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-                        Toast.makeText(getApplicationContext(),
-                                "Select your Year",
-                                Toast.LENGTH_SHORT).show();
-                        year.requestFocus();
-                    }
-                });
-
-                department.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                        sec[0] = section.getSelectedItem().toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> adapterView) {
-                        Toast.makeText(getApplicationContext(), "Select Your section", Toast.LENGTH_SHORT).show();
-                        section.requestFocus();
-                    }
-                });
-
-                if (rno.isEmpty()) {
-                    rollno.setError("Please Enter your rollno");
-                    rollno.requestFocus();
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("rollno", rno);
+                    data.put("username", uname);
+                    data.put("password", pass);
+                    data.put("department", dname[0]);
+                    data.put("section", sec[0]);
+                    data.put("year", yr[0]);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                if (uname.isEmpty()) {
-                    username.setError("Please enter a username");
-                    username.requestFocus();
-                }
-                if (pass.isEmpty()) {
-                    password.setError("Please enter a password field");
-                    password.requestFocus();
-                }
-                if (!rno.isEmpty() && !rno.contains("1601")) {
-                    rollno.setError("Enter a valid Roll no");
-                } else {
 
-                    JSONObject data = new JSONObject();
-                    try {
-                        data.put("rollno", rno);
-                        data.put("username", uname);
-                        data.put("password", pass);
-                        data.put("department", dname[0]);
-                        data.put("section", sec[0]);
-                        data.put("year", yr[0]);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                String URL = "https://stufeed.herokuapp.com/register";
 
-                    String URL = "https://stufeed.herokuapp.com/register";
+                registerRequest = new JsonObjectRequest(Request.Method.POST, URL, data, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            message = response.getString("message");
+                            OpenLoginActivity(message);
 
-                    registerRequest = new JsonObjectRequest(Request.Method.POST, URL, data, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                message = response.getString("message");
-                                OpenLoginActivity(message);
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                    queue.add(registerRequest);
-
-                }
+                queue.add(registerRequest);
 
             }
+
+
         });
     }
 
